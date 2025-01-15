@@ -31,7 +31,7 @@ function Home() {
         <button className="search-btn">search</button>
       </form>
       <div className="movies-grid">
-        <Grid container spacing={2}>
+        <Grid container columnGap={8} rowGap={6}>
           {/* Container grid with spacing */}
           {movies.map((movie) => (
             <Grid item sm={2} key={movie.id}>

@@ -33,17 +33,12 @@ import IconButton from "@mui/joy/IconButton";
 import Link from "@mui/joy/Link";
 import Favorite from "@mui/icons-material/Favorite";
 
-export default function MovieCard() {
+export default function MovieCard({ movie }) {
   return (
-    <Card variant="outlined" sx={{ width: 320 }}>
+    <Card variant="outlined" sx={{ width: 200 }}>
       <CardOverflow>
-        <AspectRatio ratio="2">
-          <img
-            src="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318"
-            srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
-            loading="lazy"
-            alt=""
-          />
+        <AspectRatio ratio="3">
+          <img src={movie.url} alt={movie.title} />
         </AspectRatio>
         <IconButton
           aria-label="Like minimal photography"
@@ -64,20 +59,18 @@ export default function MovieCard() {
       </CardOverflow>
       <CardContent>
         <Typography level="title-md">
-          <Link href="#multiple-actions" overlay underline="none">
-            Yosemite National Park
-          </Link>
+          <h2>{movie.title}</h2>
         </Typography>
         <Typography level="body-sm">
-          <Link href="#multiple-actions">California</Link>
+          <Link href="#multiple-actions"></Link>
         </Typography>
       </CardContent>
-      <CardOverflow variant="soft">
+      <CardOverflow variant="horizontal">
         <Divider inset="context" />
         <CardContent orientation="horizontal">
-          <Typography level="body-xs">6.3k views</Typography>
+          <Typography level="body-xs">9.3</Typography>
           <Divider orientation="vertical" />
-          <Typography level="body-xs">1 hour ago</Typography>
+          <Typography level="body-xs">{movie.release_date}</Typography>
         </CardContent>
       </CardOverflow>
     </Card>
