@@ -68,9 +68,11 @@ export default function MovieCard({ movie }) {
       <CardOverflow variant="horizontal">
         <Divider inset="context" />
         <CardContent orientation="horizontal">
-          <Typography level="body-xs">9.3</Typography>
+          <Typography level="body-xs">9.3 ⍟</Typography>
           <Divider orientation="vertical" />
-          <Typography level="body-xs">{movie.release_date}</Typography>
+          <Typography level="body-xs">
+            Release date:{movie.release_date}
+          </Typography>
         </CardContent>
       </CardOverflow>
     </Card>
