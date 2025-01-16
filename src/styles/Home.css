@@ -1,91 +1,106 @@
-.movies-grid {
-  display: -ms-grid;
-  grid-template-columns: 100px auto 100px;
-  grid-template-rows: 80px auto 80px; 
-  column-gap: 10px;
-  row-gap: 10px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --primary: 47.9 95.8% 53.1%;
+  --primary-foreground: 26 83.3% 14.1%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
 }
-/* General styles for the movie card */
+
+.dark {
+  --background: 20 14.3% 4.1%;
+  --foreground: 60 9.1% 97.8%;
+  --card: 20 14.3% 4.1%;
+  --card-foreground: 60 9.1% 97.8%;
+  --popover: 20 14.3% 4.1%;
+  --popover-foreground: 60 9.1% 97.8%;
+  --primary: 47.9 95.8% 53.1%;
+  --primary-foreground: 26 83.3% 14.1%;
+  --secondary: 12 6.5% 15.1%;
+  --secondary-foreground: 60 9.1% 97.8%;
+  --muted: 12 6.5% 15.1%;
+  --muted-foreground: 24 5.4% 63.9%;
+  --accent: 12 6.5% 15.1%;
+  --accent-foreground: 60 9.1% 97.8%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --border: 12 6.5% 15.1%;
+  --input: 12 6.5% 15.1%;
+  --ring: 35.5 91.7% 32.9%;
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+}
+
+.movies-grid {
+  @apply grid grid-cols-3 gap-2 p-0;
+}
+
 .movie-card {
-  width: 200px;
-  height:150;
-  margin: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
-  transition: transform 0.3s, box-shadow 0.3s;
+  @apply w-52 h-36 m-5 rounded-lg overflow-hidden shadow-lg bg-white transition-transform duration-300;
 }
 
 .movie-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  @apply transform scale-105 shadow-2xl;
 }
 
-/* Movie poster styles */
 .movie-poster {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
+  @apply relative h-72 overflow-hidden;
 }
 
 .movie-poster img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  @apply w-full h-full object-cover;
 }
 
-/* Overlay effect */
 .movie-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  transition: opacity 0.3s;
+  @apply absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300;
 }
 
 .movie-card:hover .movie-overlay {
-  opacity: 1;
+  @apply opacity-100;
 }
 
-/* Favorite button styles */
 .fav-btn {
-  background-color: #ff6b6b;
-  border: none;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  transition: transform 0.3s, background-color 0.3s;
+  @apply bg-red-500 border-none text-white p-2.5 rounded-full text-xl cursor-pointer transition-transform duration-300;
 }
 
 .fav-btn:hover {
-  background-color: #ff3d3d;
-  transform: scale(1.1);
+  @apply bg-red-600 transform scale-110;
 }
 
-/* Movie info styles */
 .movie-info {
-  padding: 15px;
-  text-align: center;
+  @apply p-4 text-center;
 }
 
 .movie-info h3 {
-  font-size: 18px;
-  margin: 10px 0 5px;
-  color: #333;
+  @apply text-lg my-2 text-gray-800;
 }
 
 .movie-info p {
-  font-size: 14px;
-  color: #777;
+  @apply text-sm text-gray-500;
 }
-
-    

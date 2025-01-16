@@ -21,7 +21,7 @@ function Home() {
 
   const handlesearch = () => {};
   return (
-    <div className="home">
+    <div className="home space-y-8">
       <form onSubmit={handlesearch} className="search-form">
         <input
           placeholder="Search any movies here "
@@ -32,9 +32,8 @@ function Home() {
       </form>
       <div className="movies-grid">
         <Grid container columnGap={8} rowGap={6}>
-          {/* Container grid with spacing */}
           {movies.map((movie) => (
-            <Grid item sm={2} key={movie.id}>
+            <Grid item xs={6} sm={6} md={6} lg={2} key={movie.id}>
               {/* Individual grid item for each MovieCard */}
               <MovieCard movie={movie} />
             </Grid>

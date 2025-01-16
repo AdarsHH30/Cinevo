@@ -37,7 +37,7 @@ export default function MovieCard({ movie }) {
   return (
     <Card variant="outlined" sx={{ width: 200 }}>
       <CardOverflow>
-        <AspectRatio ratio="3">
+        <AspectRatio ratio="1">
           <img src={movie.url} alt={movie.title} />
         </AspectRatio>
         <IconButton
