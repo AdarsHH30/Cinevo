@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 // import { HoverEffect } from "@/components/ui/card-hover-effect";
 
 import NoiseTexture from "@/components/ui/NoiseTexture";
+import { HoverEffect } from "@/components/ui/card-hover-effect";
 function Home() {
   const [searchQuery, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
@@ -71,13 +72,11 @@ function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4">
           {movies.map((movie) => (
             <div key={movie.id} className="group relative">
-              {/* <HoverEffect> */}
-
               <MovieCard movie={movie} />
-              {/* </HoverEffect> */}
             </div>
           ))}
         </div>
+        <HoverEffect items={movies}></HoverEffect>
       </div>
     </>
   );
