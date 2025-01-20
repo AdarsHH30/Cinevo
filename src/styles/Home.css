@@ -1,7 +1,25 @@
-.home {
-  padding: 2rem;
-  min-height: 100vh;
-  background-color: #000000;
+.movies-grid {
+  display: -ms-grid;
+  grid-template-columns: 100px auto 100px;
+  grid-template-rows: 80px auto 80px; 
+  column-gap: 8px;
+  row-gap: 15px;
+}
+/* General styles for the movie card */
+.movie-card {
+  width: 200px;
+  height:150;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* Search Form Styles */

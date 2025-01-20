@@ -60,15 +60,14 @@ function Home() {
         <button className="search-btn">search</button>
       </form>
       <div className="movies-grid">
-        <Grid container columnGap={8} rowGap={6}>
-          {movies.map(
-            (movie) =>
-              movie.title.toLowerCase().startsWith(searchQuery) && (
-                <Grid item xs={6} sm={6} md={6} lg={2} key={movie.id}>
-                  <MovieCard movie={movie} />
-                </Grid>
-              )
-          )}
+        <Grid container spacing={2}>
+          {/* Container grid with spacing */}
+          {movies.map((movie) => (
+            <Grid item sm={2} key={movie.id}>
+              {/* Individual grid item for each MovieCard */}
+              <MovieCard movie={movie} />
+            </Grid>
+          ))}
         </Grid>
       </div>
     </div>
