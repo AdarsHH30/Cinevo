@@ -4,8 +4,10 @@ import { Grid } from "@mui/joy";
 import ReactSearchBox from "react-search-box";
 import { getMovies, searchMovies } from "../services/api";
 import { useState, useEffect } from "react";
-import { FilterAlt, FlashAuto } from "@mui/icons-material";
+// import { FilterAlt, FlashAuto } from "@mui/icons-material";
+// import { HoverEffect } from "@/components/ui/card-hover-effect";
 
+import NoiseTexture from "@/components/ui/NoiseTexture";
 function Home() {
   const [searchQuery, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
@@ -37,7 +39,9 @@ function Home() {
     try {
       const popularMovies = await searchMovies(searchQuery);
       setMovies(popularMovies);
-      setError(null);
+      if (!popularMovies.length) {
+        setError("No movies found.");
+      } else setError(null);
     } catch (err) {
       console.error(err);
       setError("Failed to load movies.");
@@ -48,30 +52,34 @@ function Home() {
   };
 
   return (
-    <div className="home space-y-8">
-      <form onSubmit={handelSearch} className="search-form">
-        <input
-          type="text"
-          placeholder="Search any movies here "
-          className="search-input"
-          value={searchQuery}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button className="search-btn">search</button>
-      </form>
-      <div className="movies-grid">
-        <Grid container columnGap={8} rowGap={6}>
-          {movies.map(
-            (movie) =>
-              movie.title.toLowerCase().startsWith(searchQuery) && (
-                <Grid item xs={6} sm={6} md={6} lg={2} key={movie.id}>
-                  <MovieCard movie={movie} />
-                </Grid>
-              )
-          )}
-        </Grid>
+    <>
+      <div className="home space-y-0">
+        <form onSubmit={handelSearch} className="search-form">
+          <input
+            type="text"
+            placeholder="Search any movies here "
+            className="search-input"
+            value={searchQuery}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button className="search-btn">search</button>
+
+          {/* <Button variant="secondary" type="submit">
+        </div>  Search
+        </Button> */}
+        </form>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+          {movies.map((movie) => (
+            <div key={movie.id} className="group relative">
+              {/* <HoverEffect> */}
+
+              <MovieCard movie={movie} />
+              {/* </HoverEffect> */}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 export default Home;

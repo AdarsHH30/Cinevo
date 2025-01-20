@@ -6,7 +6,7 @@ function Navbar() {
     <nav className="nav-bar">
       <div className="app-name">
         <Link to="/" className="nav-links">
-          MovieRate
+          Cinevo
         </Link>
       </div>
       <div className="nav-barlinks">
