@@ -76,7 +76,7 @@ function Home() {
             </div>
           ))}
         </div>
-        <HoverEffect items={movies}></HoverEffect>
+        {/* <HoverEffect items={movies}></HoverEffect> */}
       </div>
     </>
   );
