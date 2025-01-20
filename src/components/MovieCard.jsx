@@ -1,9 +1,11 @@
 import "../index.css";
 import "../styles/Card.css";
+import { HoverEffect } from "./ui/card-hover-effect";
 function MovieCard({ movie }) {
   function onfavClick() {
     alert(`${movie.title} added to favorite`);
   }
+
   return (
     <div className="movie-card">
       <div className="movie-poster">
@@ -13,7 +15,7 @@ function MovieCard({ movie }) {
         />
         <div className="movie-overlay">
           <button className="fav-btn" onClick={onfavClick}>
-            ♥
+            ♥️
           </button>
         </div>
       </div>

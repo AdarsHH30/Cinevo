@@ -4,9 +4,10 @@ import { Grid } from "@mui/joy";
 import ReactSearchBox from "react-search-box";
 import { getMovies, searchMovies } from "../services/api";
 import { useState, useEffect } from "react";
-import { FilterAlt, FlashAuto } from "@mui/icons-material";
-import { Button } from "../components/ui/button";
+// import { FilterAlt, FlashAuto } from "@mui/icons-material";
+// import { HoverEffect } from "@/components/ui/card-hover-effect";
 
+import NoiseTexture from "@/components/ui/NoiseTexture";
 function Home() {
   const [searchQuery, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
@@ -51,36 +52,34 @@ function Home() {
   };
 
   return (
-    <div className="home space-y-8">
-      <form onSubmit={handelSearch} className="search-form">
-        <input
-          type="text"
-          placeholder="Search any movies here "
-          className="search-input"
-          value={searchQuery}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button className="search-btn">search</button>
+    <>
+      <div className="home space-y-0">
+        <form onSubmit={handelSearch} className="search-form">
+          <input
+            type="text"
+            placeholder="Search any movies here "
+            className="search-input"
+            value={searchQuery}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button className="search-btn">search</button>
 
-        {/* <Button variant="secondary" type="submit">
-          Search
+          {/* <Button variant="secondary" type="submit">
+        </div>  Search
         </Button> */}
-      </form>
-      <div className="movies-grid">
-        <Grid container spacing={2}>
-          {/* Container grid with spacing */}
+        </form>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4">
           {movies.map((movie) => (
-            <Grid item sm={2} key={movie.id}>
-              {/* Individual grid item for each MovieCard */}
+            <div key={movie.id} className="group relative">
+              {/* <HoverEffect> */}
+
               <MovieCard movie={movie} />
-            </Grid>
+              {/* </HoverEffect> */}
+            </div>
           ))}
-        </Grid>
-        <div className="max-w-5xl mx-auto px-8">
-          <HoverEffect items={movies} />
         </div>
       </div>
-    </div>
+    </>
   );
 }
 export default Home;

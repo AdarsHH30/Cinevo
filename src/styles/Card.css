@@ -1,12 +1,14 @@
-.movie-card {
+/* .movie-card {
   width: fit-content;
-  border-radius: 100px;
+  border-radius: 2px;
+  align-self: center;
   overflow: hidden;
+position: relative;
   background: hsl(var(--card));
   color: hsl(var(--card-foreground));
-  /* padding: fit;     */
+  align-items: flex-end;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  transition: 0.4 ease-out;
   cursor: pointer;
 }
 
@@ -17,7 +19,7 @@
 .movie-poster {
   position: relative;
   width: 100%;
-  aspect-ratio: 2/3;
+  aspect-ratio: 2/3.5;
 }
 
 .movie-poster img {
@@ -42,6 +44,7 @@
 
 .movie-card:hover .movie-overlay {
   opacity: 1;
+  
 }
 
 .fav-btn {
@@ -84,4 +87,119 @@
   margin: 0;
   color: hsl(var(--background));
   font-size: 14px;
+} */
+
+* {
+  box-sizing: border-box;
 }
+
+.movie-card {
+  width: 100px;
+  height: 275px;
+  border-radius: 15px;
+  padding: 3rem;
+  background: white;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: 0.4s ease-in-out;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
+
+.movie-card:hover {
+  
+  transform: translateY(-20px);
+}
+
+.movie-card:hover::before {
+  opacity: 1;
+}
+
+.movie-card:hover .movie-info  {
+  opacity: 1;
+  transform: translateY(0px);
+  
+}
+
+.movie-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+}
+
+.movie-info {
+  position: relative;
+  z-index: 3;
+
+  color: white;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+  top: 0%; /* Center vertically */
+  left: 0%; 
+}
+
+.movie-info h1 {
+  margin: 0;
+  text-align: center;
+  
+}
+
+.movie-info p {
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.fav-btn {
+  padding: 1rem;
+  border-radius: 1%;
+
+  outline: none;
+  border: none;
+  border-radius: 10cap;
+  background: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s ease;
+  opacity: 0; /* Hidden by default */
+  transform: translateY(10px); /* Move slightly down */
+  position: absolute; /* Position relative to the card */
+  top: 25%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for true centering */
+  z-index: 5;
+}
+
+.movie-card:hover .fav-btn {
+  opacity: 1; /* Make visible on hover */
+  transform: translate(-50%, -50%); /* Reset position to center */
+}
+
+.fav-btn:hover {
+  background: transparent;
+  color: rgb(251, 251, 251);
+}
+
