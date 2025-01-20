@@ -1,3 +1,4 @@
+
 .movies-grid {
   display: -ms-grid;
   grid-template-columns: 100px auto 100px;
@@ -13,12 +14,12 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  background-color: #4e4747;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .movie-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
@@ -48,7 +49,8 @@
 
 .search-btn {
   padding: 0.8rem 1.5rem;
-  background-color: #1976d2;
+
+  background-color: hsl(var(--ring));
   color: white;
   border: none;
   border-radius: 8px;

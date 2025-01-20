@@ -1,5 +1,8 @@
+
+
 .nav-bar {
-    background-color: #333;
+    background-color: hsl(var(--ring));
+    border-radius: .75rem;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -24,7 +27,7 @@
   }
   
   .nav-links {
-    color: white;
+    color: hsl(var(--background));
     text-decoration: none;
     font-size: 1.1rem;
     padding: 0.5rem 1rem;

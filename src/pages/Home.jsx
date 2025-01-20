@@ -5,6 +5,7 @@ import ReactSearchBox from "react-search-box";
 import { getMovies, searchMovies } from "../services/api";
 import { useState, useEffect } from "react";
 import { FilterAlt, FlashAuto } from "@mui/icons-material";
+import { Button } from "../components/ui/button";
 
 function Home() {
   const [searchQuery, setSearch] = useState("");
@@ -37,7 +38,9 @@ function Home() {
     try {
       const popularMovies = await searchMovies(searchQuery);
       setMovies(popularMovies);
-      setError(null);
+      if (!popularMovies.length) {
+        setError("No movies found.");
+      } else setError(null);
     } catch (err) {
       console.error(err);
       setError("Failed to load movies.");
@@ -58,6 +61,10 @@ function Home() {
           onChange={(e) => setSearch(e.target.value)}
         />
         <button className="search-btn">search</button>
+
+        {/* <Button variant="secondary" type="submit">
+          Search
+        </Button> */}
       </form>
       <div className="movies-grid">
         <Grid container spacing={2}>
@@ -69,6 +76,9 @@ function Home() {
             </Grid>
           ))}
         </Grid>
+        <div className="max-w-5xl mx-auto px-8">
+          <HoverEffect items={movies} />
+        </div>
       </div>
     </div>
   );
