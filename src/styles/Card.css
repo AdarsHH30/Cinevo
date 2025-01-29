@@ -96,8 +96,8 @@ position: relative;
 .movie-card {
   width: 100px;
   height: 275px;
-  border-radius: 15px;
-  padding: 3rem;
+  border-radius: 3cap;
+  padding: 3cap;
   background: white;
   position: relative;
   display: flex;

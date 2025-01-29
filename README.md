@@ -6,7 +6,6 @@ This is a React-based web application for browsing and searching movies.
 
 - Browse popular movies
 - Search for movies by title
-
 - Responsive design
 
 ## Technologies Used
