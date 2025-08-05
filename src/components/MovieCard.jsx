@@ -1,10 +1,16 @@
 import "../index.css";
 import "../styles/Card.css";
 import { HoverEffect } from "./ui/card-hover-effect";
+import { useFavorites } from "../contexts/FavoritesContext";
+
 function MovieCard({ movie }) {
+  const { toggleFavorite, isFavorite } = useFavorites();
+
   function onfavClick() {
-    alert(`${movie.title} added to favorite`);
+    toggleFavorite(movie);
   }
+
+  const isMovieFavorite = isFavorite(movie.id);
 
   return (
     <div className="movie-card">
@@ -14,8 +20,14 @@ function MovieCard({ movie }) {
           alt={movie.title}
         />
         <div className="movie-overlay">
-          <button className="fav-btn" onClick={onfavClick}>
-            ♥️
+          <button
+            className={`fav-btn ${isMovieFavorite ? "favorite" : ""}`}
+            onClick={onfavClick}
+            title={
+              isMovieFavorite ? "Remove from favorites" : "Add to favorites"
+            }
+          >
+            {isMovieFavorite ? "❤️" : "🤍"}
           </button>
         </div>
       </div>

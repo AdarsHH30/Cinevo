@@ -175,7 +175,6 @@ position: relative;
 .fav-btn {
   padding: 1rem;
   border-radius: 1%;
-
   outline: none;
   border: none;
   border-radius: 10cap;
@@ -191,6 +190,7 @@ position: relative;
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Adjust for true centering */
   z-index: 5;
+  font-size: 18px;
 }
 
 .movie-card:hover .fav-btn {
@@ -201,5 +201,16 @@ position: relative;
 .fav-btn:hover {
   background: transparent;
   color: rgb(251, 251, 251);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.fav-btn.favorite {
+  background: rgba(255, 255, 255, 0.9);
+  color: #ff4081;
+}
+
+.fav-btn.favorite:hover {
+  background: rgba(255, 64, 129, 0.1);
+  color: #ff4081;
 }
 
